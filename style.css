@@ -1,7 +1,7 @@
 #container {
     width: 400px;
     height: 600px;
-    background-color: black;
+    background-color: #D6D58E;
     display: flex;
     flex-direction: column;
 }
@@ -9,57 +9,53 @@
 #screen {
     height: 150px;
     width: auto;
-    background-color: grey;
+    background-color: hsl(203, 39%, 53%);
     color: white;
     font-size: 60px;
     text-align: right;
     padding: 10px;
     border-radius: 0 0 20px 20px;
+    margin: 15px;
 }
 
 input:focus {
-    caret-color: rgb(124, 68, 214);
+    caret-color: #DBF227;
 }
 
 #keypad {
     padding: 10px;
     display: flex;
     flex-direction: column;
-    background-color: black;
+    background-color: #D6D58E;
 }
 
 #rowzero {
-    background-color: greenyellow;
     display: flex;
     justify-content: space-around;
 }
 
 #rowone {
-    background-color: greenyellow;
     display: flex;
     justify-content: space-around;
 }
 
 #rowtwo {
-    background-color: greenyellow;
     display: flex;
     justify-content: space-around;
 }
 
 #rowthree {
-    background-color: greenyellow;
     display: flex;
     justify-content: space-around;
 }
 
 #rowfour {
-    background-color: greenyellow;
     display: flex;
     justify-content: space-around;
 }
 
 button {
-    background-color: seagreen;
+    background-color: #9FC131;
     color: white;
     font-size: 20px;
     border-radius: 50%; /*Makes it a circle, along with same height and width*/
@@ -70,13 +66,13 @@ button {
 
 .numbers {
     color: aliceblue;
-    background-color: fuchsia;
+    background-color: #005C53;
 }
 
 #delete {
-    background-color: peru;
+    background-color: #042940;
 }
 
 #Equals {
-    background-color: blueviolet;
+    background-color: #DBF227;
 }
