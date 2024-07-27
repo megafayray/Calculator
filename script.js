@@ -1,74 +1,65 @@
-const add = function (a, b) {
-    return a + b;
-  };
-const subtract = function (a, b) {
-  return a - b;
-};
-const multiply = function (a, b) {
-    return a * b;
-};
-const divide = function (a, b) {
-    return a / b;
-};
-
-// - Create a variable for the first number, the operator, and the second number:
-
-let firstNumber;
-let secondNumber;
-let operator;
-let displayValue;
-
-// Create a new function operate that takes an operator and 2 numbers and then calls one of the above functions on the numbers:
+let operator = null;
+let firstNumber = null;
+let secondNumber = null;
 
 const operate = function(firstNumber, operator, secondNumber){
-    if (operator === "multiply"){
-        return multiply(firstNumber,secondNumber);
-    } else if(operator === "add"){
-        return add(firstNumber,secondNumber);
-    } else if(operator === "subtract"){
-        return subtract(firstNumber,secondNumber);
-    } else if(operator === "divide"){
-        return divide(firstNumber,secondNumber);
+    let value = "";
+    if (operator === "*"){
+        value = firstNumber * secondNumber;
+    } else if(operator === "+"){
+        value = firstNumber + secondNumber;
+    } else if(operator === "-"){
+        value = firstNumber - secondNumber;
+    } else if(operator === "/"){
+        value = (firstNumber / secondNumber).toFixed(2);
     } else{
         console.log("Woops!");
     };
-
+    console.log(value);
+    const display = document.getElementById("screen");
+    display.textContent = value;
 };
 
-// Create the functions that populate the display when you click the number buttons. 
-// You should be storing the ‘display value’ in a variable somewhere for use in the next step.
-
-const one = document.getElementById("one");
-one.addEventListener("click", () => {
-    console.log("1");
-
-    const display = document.getElementById("screen");
-    display.textContent = "1";
+const numberButtons = document.querySelectorAll(".numbers");
+numberButtons.forEach(button => {
+    button.addEventListener("click", (event) => {
+        const buttonId = event.target.id;
+        console.log(buttonId); //TESTING
+        const display = document.getElementById("screen");
+        if (firstNumber === null){
+            firstNumber = parseFloat(buttonId); //converts string to a number
+            display.textContent = buttonId;
+            console.log(firstNumber); //TESTING
+        } else if (operator !== null && secondNumber === null){
+            secondNumber = parseFloat(buttonId); //converts string to a number
+            console.log(secondNumber); //TESTING
+        }
+    });
 });
 
-const two= document.getElementById("two");
-two.addEventListener("click", () => {console.log("2")})
+const buttonOperator = document.querySelectorAll(".operator");
+buttonOperator.forEach((button) => {
+    button.addEventListener("click", (event) => {
+        if(button.id === "Plus"){
+            operator = "+";
+        } else if (button.id === "Minus"){
+            operator = "-";   
+        } else if (button.id === "Divide"){
+            operator = "/";
+        } else if (button.id = "Multiply"){
+            operator = "*";
+        }
+        console.log(operator); //TESTING
+    })
+});
 
-const three = document.getElementById("three");
-three.addEventListener("click", () => {console.log("3")})
-
-const four = document.getElementById("four");
-four.addEventListener("click", () => {console.log("4")})
-
-const five = document.getElementById("five");
-five.addEventListener("click", () => {console.log("5")})
-
-const six = document.getElementById("six");
-six.addEventListener("click", () => {console.log("6")})
-
-const seven = document.getElementById("seven");
-seven.addEventListener("click", () => {console.log("7")})
-
-const eight = document.getElementById("eight");
-eight.addEventListener("click", () => {console.log("8")})
-
-const nine = document.getElementById("nine");
-nine.addEventListener("click", () => {console.log("9")})
-
-const zero = document.getElementById("zero");
-zero.addEventListener("click", () => {console.log("0")})
+const equals = document.getElementById("Equals");
+equals.addEventListener("click", () =>{
+    console.log("=");
+    if(firstNumber !== null && operator !== null && secondNumber !== null){
+        operate(firstNumber, operator, secondNumber);
+        firstNumber && secondNumber && operator === null; //reset
+    } else {
+        console.log("Dud");
+    }
+})
