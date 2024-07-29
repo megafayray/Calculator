@@ -20,12 +20,17 @@ Done:
 - Make AC (clear) button work
 - Fix display not showing secondNumber issue
 
+- Fix display not showing new firstNumber after hitting equals button
+- Fix firstNumber and secondNumber not actually resetting issue (needed to explicitly set the variables and use = not ===);
+
 
 To do:
 
 - Store the calculated result as the new firstNumber, and allow the calculator to keep running
+- Improve rounding handling (currently shows "2.00")
+- Don't let the operate function run if the second number is 0 and the operator is /.
+-- Display a snarky message instead and reset the global variables to null "ex. firstNumber = null"
 
-- Display is not showing second number
-- Display is not showing firstNumber after using clear button
-
+Extra credit:
 - Add functionality to the Delete button
+- Add functionality to the decimal button

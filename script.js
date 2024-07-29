@@ -47,7 +47,7 @@ buttonOperator.forEach((button) => {
             operator = "-";   
         } else if (button.id === "Divide"){
             operator = "/";
-        } else if (button.id = "Multiply"){
+        } else if (button.id === "Multiply"){
             operator = "*";
         }
         console.log(operator); //TESTING
@@ -57,7 +57,9 @@ buttonOperator.forEach((button) => {
 const erase= document.getElementById("clear");
 erase.addEventListener("click", () => {
     console.log("Erase");
-    firstNumber && secondNumber && operator === null; //reset
+    firstNumber = null;
+    secondNumber = null;
+    operator = null;
     const display = document.getElementById("screen");
     display.textContent = "0";
 });
@@ -67,7 +69,9 @@ equals.addEventListener("click", () =>{
     console.log("=");
     if(firstNumber !== null && operator !== null && secondNumber !== null){
         operate(firstNumber, operator, secondNumber);
-        firstNumber && secondNumber && operator === null; //reset
+        firstNumber = null;
+        secondNumber = null;
+        operator = null;
     } else {
         console.log("Dud");
     }
