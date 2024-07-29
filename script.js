@@ -33,6 +33,7 @@ numberButtons.forEach(button => {
         } else if (operator !== null && secondNumber === null){
             secondNumber = parseFloat(buttonId); //converts string to a number
             console.log(secondNumber); //TESTING
+            display.textContent = buttonId;
         }
     });
 });
@@ -51,6 +52,14 @@ buttonOperator.forEach((button) => {
         }
         console.log(operator); //TESTING
     })
+});
+
+const erase= document.getElementById("clear");
+erase.addEventListener("click", () => {
+    console.log("Erase");
+    firstNumber && secondNumber && operator === null; //reset
+    const display = document.getElementById("screen");
+    display.textContent = "0";
 });
 
 const equals = document.getElementById("Equals");

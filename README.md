@@ -16,9 +16,16 @@ Done:
 - Create the functions that populate the display when you click the number buttons
 - Make the calculator work 
 
+7/29/2024
+- Make AC (clear) button work
+- Fix display not showing secondNumber issue
+
 
 To do:
 
 - Store the calculated result as the new firstNumber, and allow the calculator to keep running
-- Add functionality to the AC (clear) button
+
+- Display is not showing second number
+- Display is not showing firstNumber after using clear button
+
 - Add functionality to the Delete button
