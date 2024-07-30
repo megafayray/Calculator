@@ -28,10 +28,30 @@ Done:
 - Improve rounding handling to avoid returning values with two zeros after the decimal point
 - Store the calculated result as the new firstNumber, and allow the calculator to keep running
 - Add CSS pseudoclass button hover and active styling
+- Allow numbers to be entered that are greater than one digit long
 
 To do:
 - Allow numbers to be entered that are greater than one digit long
+- Allow multi number/multi operator expressions (ex. 1+2+3 = 6 // currently gives 3)
 
 Extra credit:
-- Add functionality to the Delete button
+- Add functionality to the Delete button (starting point below:)
+const backSpace= document.getElementById("Delete");
+backSpace.addEventListener("click", () => {
+    let eraser = howeverImGoingToTargetIt.slice(0, -1); //remove last character
+    console.log(eraser) //TESTING
+    const display = document.getElementById("screen");
+    display.textContent = eraser;
+})
+
 - Add functionality to the decimal button
+
+       // if (firstNumber === null){
+        //     firstNumber = parseFloat(buttonId);
+        //     display.textContent = buttonId;
+        //     console.log(firstNumber); //TESTING
+        // } else if (operator !== null && secondNumber === null){
+        //     secondNumber = parseFloat(buttonId);
+        //     console.log(secondNumber); //TESTING
+        //     display.textContent = buttonId;
+        // }

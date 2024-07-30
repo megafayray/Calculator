@@ -1,6 +1,6 @@
 let operator = null;
-let firstNumber = null;
-let secondNumber = null;
+let firstNumber = "";
+let secondNumber = "";
 let result = null;
 
 const operate = function(firstNumber, operator, secondNumber){
@@ -27,14 +27,15 @@ numberButtons.forEach(button => {
     button.addEventListener("click", (event) => {
         const buttonId = event.target.id;
         const display = document.getElementById("screen");
-        if (firstNumber === null){
-            firstNumber = parseFloat(buttonId);
-            display.textContent = buttonId;
-            console.log(firstNumber); //TESTING
-        } else if (operator !== null && secondNumber === null){
-            secondNumber = parseFloat(buttonId);
-            console.log(secondNumber); //TESTING
-            display.textContent = buttonId;
+
+        if (operator === null){
+            firstNumber += buttonId;
+            display.textContent = firstNumber;
+            console.log(firstNumber);
+        } else if (operator !== null){
+            secondNumber += buttonId;
+            display.textContent = secondNumber;
+            console.log(secondNumber);
         }
     });
 });
@@ -58,8 +59,8 @@ buttonOperator.forEach((button) => {
 const erase= document.getElementById("clear");
 erase.addEventListener("click", () => {
     console.log("Erase");
-    firstNumber = null;
-    secondNumber = null;
+    firstNumber = "";
+    secondNumber = "";
     operator = null;
     result = null;
     const display = document.getElementById("screen");
@@ -70,15 +71,15 @@ const equals = document.getElementById("Equals");
 equals.addEventListener("click", () =>{
     console.log("=");
     if(operator === "/" && secondNumber === 0){
-        firstNumber = null;
-        secondNumber = null;
+        firstNumber = "";
+        secondNumber = "";
         operator = null;
         const display = document.getElementById("screen");
         display.textContent = "Nice try!";
-    } else if (firstNumber !== null && operator !== null && secondNumber !== null){
-        operate(firstNumber, operator, secondNumber);
+    } else if (firstNumber !== "" && operator !== null && secondNumber !== ""){
+        operate(parseFloat(firstNumber), operator, parseFloat(secondNumber));
         firstNumber = result;
-        secondNumber = null;
+        secondNumber = "";
         operator = null;
     } else {
         console.log("Dud");
