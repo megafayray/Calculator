@@ -68,13 +68,21 @@ button {
 
 .numbers {
     color: aliceblue;
-    background-color: #005C53;
+    background-color: hsl(174, 100%, 18%);
 }
 
-#delete {
+.delete {
     background-color: #042940;
 }
 
-#Equals {
+.equals {
+    background-color: #DBF227;
+}
+
+button:hover {
+    background-color: black;
+}
+
+button:active {
     background-color: #DBF227;
 }

@@ -27,10 +27,10 @@ Done:
 - Display a snarky message instead and reset the global variables to null if user attempts to divide by zero
 - Improve rounding handling to avoid returning values with two zeros after the decimal point
 - Store the calculated result as the new firstNumber, and allow the calculator to keep running
+- Add CSS pseudoclass button hover and active styling
 
 To do:
 - Allow numbers to be entered that are greater than one digit long
-- Add button onhover and onclick CSS styling
 
 Extra credit:
 - Add functionality to the Delete button
