@@ -29,12 +29,13 @@ Done:
 - Store the calculated result as the new firstNumber, and allow the calculator to keep running
 - Add CSS pseudoclass button hover and active styling
 - Allow numbers to be entered that are greater than one digit long
+- Add alert
+- Prevent numbers from overflowing the screen
 
 To do:
-- Allow numbers to be entered that are greater than one digit long
 - Allow multi number/multi operator expressions (ex. 1+2+3 = 6 // currently gives 3)
 
-Extra credit:
+Extra credit (for a later time):
 - Add functionality to the Delete button (starting point below:)
 const backSpace= document.getElementById("Delete");
 backSpace.addEventListener("click", () => {
@@ -45,13 +46,4 @@ backSpace.addEventListener("click", () => {
 })
 
 - Add functionality to the decimal button
-
-       // if (firstNumber === null){
-        //     firstNumber = parseFloat(buttonId);
-        //     display.textContent = buttonId;
-        //     console.log(firstNumber); //TESTING
-        // } else if (operator !== null && secondNumber === null){
-        //     secondNumber = parseFloat(buttonId);
-        //     console.log(secondNumber); //TESTING
-        //     display.textContent = buttonId;
-        // }
+- Add keyboard support

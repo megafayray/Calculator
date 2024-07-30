@@ -7,7 +7,7 @@
 }
 
 #screen {
-    height: 150px;
+    min-height: 150px;
     width: auto;
     background-color: hsl(203, 39%, 53%);
     color: white;
@@ -16,8 +16,12 @@
     border-radius: 0 0 20px 20px;
     margin: 15px;
     display: flex;
+    flex: 1;
     align-items: center;
     justify-content: flex-end;
+    word-wrap: break-word;
+    word-break: break-all;
+    overflow: auto;
 }
 
 input:focus {
