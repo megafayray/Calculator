@@ -31,19 +31,11 @@ Done:
 - Allow numbers to be entered that are greater than one digit long
 - Add alert
 - Prevent numbers from overflowing the screen
+- Add backspace button functionality to delete one character
 
 To do:
 - Allow multi number/multi operator expressions (ex. 1+2+3 = 6 // currently gives 3)
 
 Extra credit (for a later time):
-- Add functionality to the Delete button (starting point below:)
-const backSpace= document.getElementById("Delete");
-backSpace.addEventListener("click", () => {
-    let eraser = howeverImGoingToTargetIt.slice(0, -1); //remove last character
-    console.log(eraser) //TESTING
-    const display = document.getElementById("screen");
-    display.textContent = eraser;
-})
-
 - Add functionality to the decimal button
 - Add keyboard support

@@ -32,7 +32,7 @@ numberButtons.forEach(button => {
             firstNumber += buttonId;
             display.textContent = firstNumber;
             console.log(firstNumber);
-        } else if (operator !== null){
+        } else if (operator !== null && secondNumber === ""){
             secondNumber += buttonId;
             display.textContent = secondNumber;
             console.log(secondNumber);
@@ -85,3 +85,15 @@ equals.addEventListener("click", () =>{
         console.log("Dud");
     }
 })
+
+const backSpace= document.getElementById("Delete");
+backSpace.addEventListener("click", () => {
+    const display = document.getElementById("screen");
+    if (operator === null){
+        firstNumber = firstNumber.slice(0, -1);
+        display.textContent = firstNumber || "0";
+    } else {
+        secondNumber = secondNumber.slice(0, -1);
+        display.textContent = secondNumber || "0";
+    }
+});
