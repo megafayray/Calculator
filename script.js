@@ -1,6 +1,7 @@
 let operator = null;
 let firstNumber = null;
 let secondNumber = null;
+let result = null;
 
 const operate = function(firstNumber, operator, secondNumber){
     let value = "";
@@ -11,13 +12,14 @@ const operate = function(firstNumber, operator, secondNumber){
     } else if(operator === "-"){
         value = firstNumber - secondNumber;
     } else if(operator === "/"){
-        value = (firstNumber / secondNumber).toFixed(2);
+        value = +(firstNumber / secondNumber).toFixed(2);
     } else{
         console.log("Woops!");
     };
     console.log(value);
     const display = document.getElementById("screen");
     display.textContent = value;
+    result = value;
 };
 
 const numberButtons = document.querySelectorAll(".numbers");
@@ -26,11 +28,11 @@ numberButtons.forEach(button => {
         const buttonId = event.target.id;
         const display = document.getElementById("screen");
         if (firstNumber === null){
-            firstNumber = parseFloat(buttonId); //converts string to a number
+            firstNumber = parseFloat(buttonId);
             display.textContent = buttonId;
             console.log(firstNumber); //TESTING
         } else if (operator !== null && secondNumber === null){
-            secondNumber = parseFloat(buttonId); //converts string to a number
+            secondNumber = parseFloat(buttonId);
             console.log(secondNumber); //TESTING
             display.textContent = buttonId;
         }
@@ -59,6 +61,7 @@ erase.addEventListener("click", () => {
     firstNumber = null;
     secondNumber = null;
     operator = null;
+    result = null;
     const display = document.getElementById("screen");
     display.textContent = "0";
 });
@@ -74,7 +77,7 @@ equals.addEventListener("click", () =>{
         display.textContent = "Nice try!";
     } else if (firstNumber !== null && operator !== null && secondNumber !== null){
         operate(firstNumber, operator, secondNumber);
-        firstNumber = null;
+        firstNumber = result;
         secondNumber = null;
         operator = null;
     } else {
