@@ -24,7 +24,6 @@ const numberButtons = document.querySelectorAll(".numbers");
 numberButtons.forEach(button => {
     button.addEventListener("click", (event) => {
         const buttonId = event.target.id;
-        console.log(buttonId); //TESTING
         const display = document.getElementById("screen");
         if (firstNumber === null){
             firstNumber = parseFloat(buttonId); //converts string to a number
@@ -67,7 +66,13 @@ erase.addEventListener("click", () => {
 const equals = document.getElementById("Equals");
 equals.addEventListener("click", () =>{
     console.log("=");
-    if(firstNumber !== null && operator !== null && secondNumber !== null){
+    if(operator === "/" && secondNumber === 0){
+        firstNumber = null;
+        secondNumber = null;
+        operator = null;
+        const display = document.getElementById("screen");
+        display.textContent = "Nice try!";
+    } else if (firstNumber !== null && operator !== null && secondNumber !== null){
         operate(firstNumber, operator, secondNumber);
         firstNumber = null;
         secondNumber = null;
