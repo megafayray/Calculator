@@ -47,3 +47,5 @@ Done:
 For a later time:
 - Add keyboard support
 - Toggle CSS classes to change hover and active pseudoclasses for the darkmode function (pseudoclasses can't be changed using .setAttribute in Javascript)
+
+hello
