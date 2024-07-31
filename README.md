@@ -39,6 +39,9 @@ Done:
 - Add function that changes the color of the calculator (used two different methods as examples of two ways of doing it)
 - Fixed "Uncaught TypeError: firstNumber.slice is not a function" console.log error by converting .toString before performing the .slice"
 
+7/31/2024 
+- Disable the decimal button if there's already one in the display
+
 To do:
 - Allow multi number/multi operator expressions (ex. 1+2+3 = 6 // currently the display becomes "23" when I enter 1+2+3, and when I hit equals, I get "24")
 

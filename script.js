@@ -32,6 +32,9 @@ numberButtons.forEach(button => {
             secondNumber += buttonId;
             display.textContent = secondNumber;
             console.log(secondNumber);
+        };
+        if(firstNumber.includes(".")){
+            document.getElementById(".").disabled = true;
         }
     });
 });
