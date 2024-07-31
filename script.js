@@ -2,6 +2,7 @@ let operator = null;
 let firstNumber = "";
 let secondNumber = "";
 let result = null;
+const display = document.getElementById("screen");
 
 const operate = function(firstNumber, operator, secondNumber){
     let value = "";
@@ -17,7 +18,6 @@ const operate = function(firstNumber, operator, secondNumber){
         console.log("Woops!");
     };
     console.log(value);
-    const display = document.getElementById("screen");
     display.textContent = value;
     result = value;
 };
@@ -26,8 +26,6 @@ const numberButtons = document.querySelectorAll(".numbers");
 numberButtons.forEach(button => {
     button.addEventListener("click", (event) => {
         const buttonId = event.target.id;
-        const display = document.getElementById("screen");
-
         if (operator === null){
             firstNumber += buttonId;
             display.textContent = firstNumber;
@@ -63,19 +61,17 @@ erase.addEventListener("click", () => {
     secondNumber = "";
     operator = null;
     result = null;
-    const display = document.getElementById("screen");
     display.textContent = "0";
 });
 
 const equals = document.getElementById("Equals");
 equals.addEventListener("click", () =>{
     console.log("=");
-    if(operator === "/" && secondNumber === 0){
+    if(operator === "/" && secondNumber === "0"){
+        display.textContent = "Nice try!";
         firstNumber = "";
         secondNumber = "";
         operator = null;
-        const display = document.getElementById("screen");
-        display.textContent = "Nice try!";
     } else if (firstNumber !== "" && operator !== null && secondNumber !== ""){
         operate(parseFloat(firstNumber), operator, parseFloat(secondNumber));
         firstNumber = result;
@@ -84,11 +80,10 @@ equals.addEventListener("click", () =>{
     } else {
         console.log("Dud");
     }
-})
+});
 
 const backSpace= document.getElementById("Delete");
 backSpace.addEventListener("click", () => {
-    const display = document.getElementById("screen");
     if (operator === null){
         firstNumber = firstNumber.slice(0, -1);
         display.textContent = firstNumber || "0";
