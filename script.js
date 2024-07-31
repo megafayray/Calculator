@@ -3,6 +3,7 @@ let firstNumber = "";
 let secondNumber = "";
 let result = "";
 const display = document.getElementById("screen");
+const decimalButton = document.getElementById(".");
 
 const operate = function(firstNumber, operator, secondNumber){
     if (operator === "*"){
@@ -13,36 +14,41 @@ const operate = function(firstNumber, operator, secondNumber){
         result = firstNumber - secondNumber;
     } else if(operator === "/"){
         result = +(firstNumber / secondNumber).toFixed(2);
-    } else{
+    } else {
         console.log("Woops!");
     };
     console.log(result);
     display.textContent = result;
 };
 
+const updateDecimalButtonState = () => {
+    if ((operator === null && !firstNumber.toString().includes(".")) ||
+        (operator !== null && !secondNumber.toString().includes("."))) {
+        decimalButton.disabled = false;
+    } else {
+        decimalButton.disabled = true;
+    }
+};
+
 const numberButtons = document.querySelectorAll(".numbers");
 numberButtons.forEach(button => {
     button.addEventListener("click", (event) => {
         const buttonId = event.target.id;
-        if (operator === null){
+        if (operator === null) {
             firstNumber += buttonId;
             display.textContent = firstNumber;
-            console.log(firstNumber);
-        } else if (operator !== null){
+        } else {
             secondNumber += buttonId;
             display.textContent = secondNumber;
-            console.log(secondNumber);
-        };
-        if(firstNumber.includes(".")){
-            document.getElementById(".").disabled = true;
         }
+        updateDecimalButtonState();
     });
 });
 
 const buttonOperator = document.querySelectorAll(".operator");
 buttonOperator.forEach((button) => {
     button.addEventListener("click", (event) => {
-        if(button.id === "Plus"){
+        if (button.id === "Plus"){
             operator = "+";
         } else if (button.id === "Minus"){
             operator = "-";   
@@ -52,10 +58,28 @@ buttonOperator.forEach((button) => {
             operator = "*";
         }
         console.log(operator); //TESTING
+        updateDecimalButtonState();
     })
 });
 
-const erase= document.getElementById("clear");
+decimalButton.addEventListener("click", () => {
+    if (operator === null) {
+        // Prevent multiple decimals in the firstNumber
+        if (!firstNumber.includes(".")) {
+            firstNumber += ".";
+            display.textContent = firstNumber;
+        }
+    } else {
+        // Prevent multiple decimals in the secondNumber
+        if (!secondNumber.includes(".")) {
+            secondNumber += ".";
+            display.textContent = secondNumber;
+        }
+    }
+    updateDecimalButtonState();
+});
+
+const erase = document.getElementById("clear");
 erase.addEventListener("click", () => {
     console.log("Erase");
     firstNumber = "";
@@ -63,6 +87,7 @@ erase.addEventListener("click", () => {
     operator = null;
     result = "";
     display.textContent = "0";
+    updateDecimalButtonState();
 });
 
 const equals = document.getElementById("Equals");
@@ -84,17 +109,19 @@ equals.addEventListener("click", () =>{
     } else {
         console.log("Dud");
     }
+    updateDecimalButtonState();
 });
 
-const backSpace= document.getElementById("Delete");
+const backSpace = document.getElementById("Delete");
 backSpace.addEventListener("click", () => {
-    if (operator === null){
+    if (operator === null) {
         firstNumber = firstNumber.toString().slice(0, -1);
         display.textContent = firstNumber || "0";
     } else {
-        secondNumber = secondNumber.toString.slice(0, -1);
+        secondNumber = secondNumber.toString().slice(0, -1);
         display.textContent = secondNumber || "0";
     }
+    updateDecimalButtonState();
 });
 
 const google = document.getElementById("google");
@@ -114,8 +141,8 @@ darkmode.addEventListener("click", () => {
             if (element){
                 element.setAttribute("style", "background: #1E1F22;");
             }
-        })
-    }else if (darkmode.textContent === "Light"){
+        });
+    } else if (darkmode.textContent === "Light"){
         darkmode.textContent = "Dark";
         darkmode.style.backgroundColor = "#3B3F41"; 
         const container = document.getElementById("container");
