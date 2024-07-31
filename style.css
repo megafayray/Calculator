@@ -95,3 +95,15 @@ button:active {
     height: 45px;
     width: 45px;
 }
+
+#darkmode {
+    background-color: #3B3F41;
+}
+
+#darkmode:hover {
+    background-color: #2C2D30;
+}
+
+#darkmode:active {
+    background-color: #D0D1D5;
+}

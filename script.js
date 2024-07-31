@@ -96,4 +96,27 @@ backSpace.addEventListener("click", () => {
 const google = document.getElementById("google");
 google.addEventListener("click", () => {
     window.open("http://www.google.com");
-})
+});
+
+const darkmode = document.getElementById("darkmode");
+const elementsToStyle = ["container", "keypad"];
+
+darkmode.addEventListener("click", () => {
+    if (darkmode.textContent === "Dark"){
+        darkmode.textContent = "Light";
+        darkmode.style.backgroundColor = "#D0D1D5"; 
+        elementsToStyle.forEach(id => {
+            const element = document.getElementById(id);
+            if (element){
+                element.setAttribute("style", "background: #1E1F22;");
+            }
+        })
+    }else if (darkmode.textContent === "Light"){
+        darkmode.textContent = "Dark";
+        darkmode.style.backgroundColor = "#3B3F41"; 
+        const container = document.getElementById("container");
+        container.setAttribute("style", "background: #D6D58E;");
+        const keypad = document.getElementById("keypad");
+        keypad.setAttribute("style", "background: #D6D58E;");
+    }
+});

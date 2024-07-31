@@ -36,11 +36,11 @@ Done:
 - Add decimal button functionality
 - Make const display a global variable and remove it in all other places it occurs
 - Add Google button
+- Add function that changes the color of the calculator (used two different methods as examples of two ways of doing it)
 
 To do:
 - Allow multi number/multi operator expressions (ex. 1+2+3 = 6 // currently gives 3)
-- 
 
-Extra credit (for a later time):
+For a later time:
 - Add keyboard support
-- Change % button to add functionality that changes the style of the calculator
+- Toggle CSS classes to change hover and active pseudoclasses for the darkmode function (pseudoclasses can't be changed using .setAttribute in Javascript)
