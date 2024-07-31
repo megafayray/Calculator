@@ -90,3 +90,8 @@ button:hover {
 button:active {
     background-color: #DBF227;
 }
+
+#google img {
+    height: 45px;
+    width: 45px;
+}

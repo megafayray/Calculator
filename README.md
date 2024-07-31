@@ -4,6 +4,7 @@ Learnings and reminders:
 - To set a variable to null, explicitly use "firstNumber = null", not "firstNumber === null"
 - Use parseFloat(buttonId) to convert a string to a number
 - My "if(operator === "/" && secondNumber === "0")" code wasn't working ("Infinity" was displayed). This is because I'm using numbers, not strings (using "" indicates a string)
+- Conversely, in another spot (prior to using parseFloat), I needed to use secondNumber === "0" because it was a string at that point (see the "Nice try" section)
 
 Done:
 - Create functions for the following items:
@@ -34,6 +35,7 @@ Done:
 - Add backspace button functionality to delete one character
 - Add decimal button functionality
 - Make const display a global variable and remove it in all other places it occurs
+- Add Google button
 
 To do:
 - Allow multi number/multi operator expressions (ex. 1+2+3 = 6 // currently gives 3)
@@ -41,3 +43,4 @@ To do:
 
 Extra credit (for a later time):
 - Add keyboard support
+- Change % button to add functionality that changes the style of the calculator

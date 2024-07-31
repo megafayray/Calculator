@@ -92,3 +92,8 @@ backSpace.addEventListener("click", () => {
         display.textContent = secondNumber || "0";
     }
 });
+
+const google = document.getElementById("google");
+google.addEventListener("click", () => {
+    window.open("http://www.google.com");
+})
