@@ -42,9 +42,7 @@ Done:
 7/31/2024 
 - Disable the decimal button if there's already one in the display
 - Fix decimal point bug
-
-To do:
-- Allow multi number/multi operator expressions (ex. 1+2+3 = 6 // currently the display becomes "23" when I enter 1+2+3, and when I hit equals, I get "24")
+- Allow multi number and multi operator expressions (ex. 1+2+3 = 6)
 
 For a later time:
 - Add keyboard support

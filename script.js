@@ -5,6 +5,11 @@ let result = "";
 const display = document.getElementById("screen");
 const decimalButton = document.getElementById(".");
 
+const updateScreen = () => {
+    console.log(result);
+    display.textContent = result;
+}
+
 const operate = function(firstNumber, operator, secondNumber){
     if (operator === "*"){
         result = firstNumber * secondNumber;
@@ -17,8 +22,8 @@ const operate = function(firstNumber, operator, secondNumber){
     } else {
         console.log("Woops!");
     };
-    console.log(result);
-    display.textContent = result;
+    // console.log(result);
+    // display.textContent = result;
 };
 
 const updateDecimalButtonState = () => {
@@ -37,9 +42,11 @@ numberButtons.forEach(button => {
         if (operator === null) {
             firstNumber += buttonId;
             display.textContent = firstNumber;
+            console.log(firstNumber); //TESTING
         } else {
             secondNumber += buttonId;
             display.textContent = secondNumber;
+            console.log(secondNumber); //TESTING
         }
         updateDecimalButtonState();
     });
@@ -48,6 +55,14 @@ numberButtons.forEach(button => {
 const buttonOperator = document.querySelectorAll(".operator");
 buttonOperator.forEach((button) => {
     button.addEventListener("click", (event) => {
+         if(firstNumber !== "" && operator !== null && secondNumber !== ""){
+            operate(parseFloat(firstNumber), operator, parseFloat(secondNumber));
+            firstNumber = result;
+            secondNumber = "";
+            operator = null;
+            updateScreen();
+         };
+
         if (button.id === "Plus"){
             operator = "+";
         } else if (button.id === "Minus"){
@@ -103,9 +118,7 @@ equals.addEventListener("click", () =>{
         firstNumber = result;
         secondNumber = "";
         operator = null;
-        console.log(firstNumber);
-        console.log(secondNumber);
-        console.log(operator);
+        updateScreen();
     } else {
         console.log("Dud");
     }
@@ -131,7 +144,6 @@ google.addEventListener("click", () => {
 
 const darkmode = document.getElementById("darkmode");
 const elementsToStyle = ["container", "keypad"];
-
 darkmode.addEventListener("click", () => {
     if (darkmode.textContent === "Dark"){
         darkmode.textContent = "Light";
