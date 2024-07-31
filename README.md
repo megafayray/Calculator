@@ -37,6 +37,7 @@ Done:
 - Make const display a global variable and remove it in all other places it occurs
 - Add Google button
 - Add function that changes the color of the calculator (used two different methods as examples of two ways of doing it)
+- Fixed "Uncaught TypeError: firstNumber.slice is not a function" console.log error by converting .toString before performing the .slice"
 
 To do:
 - Allow multi number/multi operator expressions (ex. 1+2+3 = 6 // currently the display becomes "23" when I enter 1+2+3, and when I hit equals, I get "24")

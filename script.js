@@ -1,25 +1,23 @@
 let operator = null;
 let firstNumber = "";
 let secondNumber = "";
-let result = null;
+let result = "";
 const display = document.getElementById("screen");
 
 const operate = function(firstNumber, operator, secondNumber){
-    let value = "";
     if (operator === "*"){
-        value = firstNumber * secondNumber;
+        result = firstNumber * secondNumber;
     } else if(operator === "+"){
-        value = firstNumber + secondNumber;
+        result = firstNumber + secondNumber;
     } else if(operator === "-"){
-        value = firstNumber - secondNumber;
+        result = firstNumber - secondNumber;
     } else if(operator === "/"){
-        value = +(firstNumber / secondNumber).toFixed(2);
+        result = +(firstNumber / secondNumber).toFixed(2);
     } else{
         console.log("Woops!");
     };
-    console.log(value);
-    display.textContent = value;
-    result = value;
+    console.log(result);
+    display.textContent = result;
 };
 
 const numberButtons = document.querySelectorAll(".numbers");
@@ -60,7 +58,7 @@ erase.addEventListener("click", () => {
     firstNumber = "";
     secondNumber = "";
     operator = null;
-    result = null;
+    result = "";
     display.textContent = "0";
 });
 
@@ -77,6 +75,9 @@ equals.addEventListener("click", () =>{
         firstNumber = result;
         secondNumber = "";
         operator = null;
+        console.log(firstNumber);
+        console.log(secondNumber);
+        console.log(operator);
     } else {
         console.log("Dud");
     }
@@ -85,10 +86,10 @@ equals.addEventListener("click", () =>{
 const backSpace= document.getElementById("Delete");
 backSpace.addEventListener("click", () => {
     if (operator === null){
-        firstNumber = firstNumber.slice(0, -1);
+        firstNumber = firstNumber.toString().slice(0, -1);
         display.textContent = firstNumber || "0";
     } else {
-        secondNumber = secondNumber.slice(0, -1);
+        secondNumber = secondNumber.toString.slice(0, -1);
         display.textContent = secondNumber || "0";
     }
 });
