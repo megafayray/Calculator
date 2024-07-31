@@ -39,7 +39,7 @@ Done:
 - Add function that changes the color of the calculator (used two different methods as examples of two ways of doing it)
 
 To do:
-- Allow multi number/multi operator expressions (ex. 1+2+3 = 6 // currently gives 3)
+- Allow multi number/multi operator expressions (ex. 1+2+3 = 6 // currently the display becomes "23" when I enter 1+2+3, and when I hit equals, I get "24")
 
 For a later time:
 - Add keyboard support
