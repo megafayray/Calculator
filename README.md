@@ -32,10 +32,11 @@ Done:
 - Add alert
 - Prevent numbers from overflowing the screen
 - Add backspace button functionality to delete one character
+- Add decimal button functionality
 
 To do:
 - Allow multi number/multi operator expressions (ex. 1+2+3 = 6 // currently gives 3)
+- make const display a global variable and remove it in all other places it occurs
 
 Extra credit (for a later time):
-- Add functionality to the decimal button
 - Add keyboard support

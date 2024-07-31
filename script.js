@@ -32,7 +32,7 @@ numberButtons.forEach(button => {
             firstNumber += buttonId;
             display.textContent = firstNumber;
             console.log(firstNumber);
-        } else if (operator !== null && secondNumber === ""){
+        } else if (operator !== null){
             secondNumber += buttonId;
             display.textContent = secondNumber;
             console.log(secondNumber);
